@@ -294,7 +294,8 @@ void setFilesizeAndBandwidth(){
   fill(textColor);
   textSize(13.5);
   textAlign(LEFT);
-  String textBandwidthAndSize = "Size = " + getFileSize(soundFilename) + " | Bandwidth = " + "xx.xx" + " Mbps";
+  int bandWidth = ((Integer.parseInt(selectedFrequency) * 1000) * Integer.parseInt(selectedPrecision) * 2) / 1024;
+  String textBandwidthAndSize = "Size = " + getFileSize(soundFilename) + " | Bandwidth = " + bandWidth + " Kbps";
   text(textBandwidthAndSize, 335, 358);
 }
 

@@ -2,7 +2,7 @@
 /* Multimedia Demonstration v1.0 */
 /*  Developed  by Jeferson Lima  */
 /* ***************************** */
-/* Description: Template         */
+/* Description: Lookup Table     */
 /* ***************************** */
 /* Libraries used: ControlP5     */
 /* ***************************** */
@@ -13,15 +13,10 @@
 import controlP5.*;
 
 /* Box description */
-final String boxDescription = "The minimum sampling frequency of an A/D converter should be"  +
-                              " at least twice the frequency of the signal being measured.\n" +
-                              "Note how final size and badwidth change with different setups.\n" +
-                              "These files are not compressed.";
-final String boxHeader      = "Nyquist Theorem";
-
-/* Action Box description */
-final String actionDescription = "Select precision and frequency\n" +
-                                 "after that, press play or stop";
+final String boxHeader      = "Lookup Table";
+final String boxDescription = "This is a demonstration of how a LUT(Lookup Table) works and how "  +
+                              "we can represent colors in a adaptive way.\n" +
+                              "Look how LUT can be really fast for adaptively convert colors in images.\n";
 
 /* Controller for P5 */
 ControlP5 controlP5;

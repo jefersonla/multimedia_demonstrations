@@ -256,10 +256,46 @@ void setup() {
   /* Sound File setup */
   soundFilename = soundFilenameTemplate.replace("{FREQ}", "11")
                                        .replace("{PRECISION}", "8");
+  soundFilename = sketchPath("data/") + soundFilename;
+  
+  /* Set Filesize and Bandwidth values */
+  setFilesizeAndBandwidth();
 }
 
 /* Draw Objects */
 void draw() {
+}
+
+/* Get Filesize */
+String getFileSize(String filename) {
+  File f  = new File(filename);           // read into File object
+  long fs = f.length();                   // get file size in bytes
+
+  String fileSize = "";
+  if (fs < 1024) {                        // less than 1 kb, measure in bytes
+    fileSize += fs + " bytes";
+  }
+  else if (fs > 1024 && fs < 1022976) {   // 1 kb - .99 MB, measure in kb
+    fs /= 1024;
+    fileSize += fs + " KB";
+  }
+  else {
+    fileSize += nf(((fs / 1024.0) / 1024.0), 1, 2) + " MB";               // larger? measure in megabytes
+  }
+
+  return fileSize;
+}
+
+/* Filesize and badwidth */
+void setFilesizeAndBandwidth(){
+  /* File Details */
+  fill(boxColor);
+  rect(330, 340, 295, 25);
+  fill(textColor);
+  textSize(13.5);
+  textAlign(LEFT);
+  String textBandwidthAndSize = "Size = " + getFileSize(soundFilename) + " | Bandwidth = " + "xx.xx" + " Mbps";
+  text(textBandwidthAndSize, 335, 358);
 }
 
 /* VOL Slider */
@@ -274,15 +310,10 @@ public void VOL(int theValue){
 public void Play_Stop_Music(boolean theValue){
   println("Pressed - " + (theValue ? "PLAY" : "STOP"));
   musicState = theValue;
-  
-  /* Sound Filename */
-  soundFilename = soundFilenameTemplate.replace("{FREQ}", selectedFrequency)
-                                       .replace("{PRECISION}", selectedPrecision);
-  soundFilename = sketchPath("data/") + soundFilename;
-  println("Sound Filename - " + soundFilename);
-  
+    
   /* Play or Stop Music */
   if(theValue){
+    /* Remove Last SamplePlayer if there any */
     musicGain.clearInputConnections();
     // Play Music
     try{
@@ -339,6 +370,17 @@ void disableButtonsExcept(int buttonExcept){
   /* Stop Music */
   if((Button)controlP5.getController("Play_Stop_Music") != null && musicState == MUSIC_PLAYING){
     ((Button)controlP5.getController("Play_Stop_Music")).setOff();
+  }
+  
+  if(soundFilename != null){
+    /* Sound Filename */
+    soundFilename = soundFilenameTemplate.replace("{FREQ}", selectedFrequency)
+                                         .replace("{PRECISION}", selectedPrecision);
+    soundFilename = sketchPath("data/") + soundFilename;
+    println("Sound Filename - " + soundFilename);
+    
+    /* Set Filesize and Bandwidth values */
+    setFilesizeAndBandwidth();
   }
   
   /* Define which button will be disabled */

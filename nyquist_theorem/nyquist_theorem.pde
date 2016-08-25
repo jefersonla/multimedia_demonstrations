@@ -1,7 +1,15 @@
-/*    Multimedia ToolBook v1.0    */
-/*   Developed by Jeferson Lima   */
+/* *****************************  */
+/* Multimedia Demonstration v1.0  */
+/*  Developed  by Jeferson Lima   */
+/* *****************************  */
 /* Description: Example of audio  */
 /*              Nyquist Theorem   */
+/* *****************************  */
+/* Libraries used: ControlP5      */
+/*                 Beads          */
+/* *****************************  */
+/* INSTALL LIBRARIES BEFORE RUN!  */
+/* *****************************  */
 
 /* Imports */
 import controlP5.*;
@@ -248,7 +256,6 @@ void setup() {
   /* Sound File setup */
   soundFilename = soundFilenameTemplate.replace("{FREQ}", "11")
                                        .replace("{PRECISION}", "8");
-  println(soundFilename);
 }
 
 /* Draw Objects */
@@ -300,7 +307,7 @@ public void Play_Stop_Music(boolean theValue){
     }catch(Exception e){
       println("Can't Load file sorry :/"); 
     }
-    
+    /* Change Controller Label */
     controlP5.getController("Play_Stop_Music")
              .getCaptionLabel()
              .setText("Stop_Music");

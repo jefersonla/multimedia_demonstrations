@@ -1,4 +1,4 @@
-# multimedia_demonstrations
+# Fundamental of Multimedia - Demonstrations
 Fundamentals of multimedia exercises and demonstrations
 
 ### Downloading Processing

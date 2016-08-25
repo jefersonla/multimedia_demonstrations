@@ -1,15 +1,15 @@
-/* *****************************  */
-/* Multimedia Demonstration v1.0  */
-/*  Developed  by Jeferson Lima   */
-/* *****************************  */
-/* Description: Example of audio  */
-/*              Nyquist Theorem   */
-/* *****************************  */
-/* Libraries used: ControlP5      */
-/*                 Beads          */
-/* *****************************  */
-/* INSTALL LIBRARIES BEFORE RUN!  */
-/* *****************************  */
+/* ***************************** */
+/* Multimedia Demonstration v1.0 */
+/*  Developed  by Jeferson Lima  */
+/* ***************************** */
+/* Description: Example of audio */
+/*              Nyquist Theorem  */
+/* ***************************** */
+/* Libraries used: ControlP5     */
+/*                 Beads         */
+/* ***************************** */
+/* INSTALL LIBRARIES BEFORE RUN! */
+/* ***************************** */
 
 /* Imports */
 import controlP5.*;
